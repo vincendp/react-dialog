@@ -1,7 +1,7 @@
 {
-    "name": "react-dialog",
-    "private": true,
-    "version": "0.0.0",
+    "name": "@vincendp/react-dialog",
+    "private": false,
+    "version": "0.0.4",
     "type": "module",
     "main": "./dist/react-dialog.umd.cjs",
     "module": "./dist/react-dialog.js",
@@ -11,9 +11,13 @@
             "require": "./dist/react-dialog.umd.cjs"
         }
     },
+    "files": [
+        "dist"
+    ],
     "scripts": {
-        "dev": "vite",
+        "dev": "storybook dev -p 6006",
         "build": "vite build",
+        "clean": "rm -rf dist",
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006",

@@ -1,8 +1,8 @@
-import Dialog from "../components/Dialog";
+import * as Dialog from "../index.js";
 
 export default {
-    title: "Dialog",
-    component: Dialog,
+    title: "DialogRoot",
+    component: Dialog.Root,
     parameters: {
         layout: "centered",
     },
@@ -12,7 +12,7 @@ export default {
     },
 };
 
-export const Test = {
+export const TestRoot = {
     args: {
         primary: true,
         label: "Button",

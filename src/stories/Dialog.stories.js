@@ -1,20 +1,25 @@
-import * as Dialog from "../index.js";
+import DialogScreen from "./Dialog";
 
 export default {
-    title: "DialogRoot",
-    component: Dialog.Root,
+    title: "Dialog Screen",
+    component: DialogScreen,
     parameters: {
         layout: "centered",
     },
     tags: ["autodocs"],
     argTypes: {
-        backgroundColor: { control: "color" },
+        defaultIsOpen: { control: "boolean" },
     },
 };
 
-export const TestRoot = {
+export const DefaultClosed = {
     args: {
-        primary: true,
-        label: "Button",
+        defaultIsOpen: false,
+    },
+};
+
+export const DefaultOpen = {
+    args: {
+        defaultIsOpen: true,
     },
 };

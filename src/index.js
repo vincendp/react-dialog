@@ -21,3 +21,6 @@ export { default as Title } from "./components/DialogTitle";
 
 export * from "./components/DialogTrigger";
 export { default as Trigger } from "./components/DialogTrigger";
+
+export * from "./provider/DialogProvider";
+export { default as Provider } from "./provider/DialogProvider";

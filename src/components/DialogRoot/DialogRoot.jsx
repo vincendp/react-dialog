@@ -1,15 +1,5 @@
-import React from "react";
-import { DialogContext } from "../../provider/DialogProvider";
-
-function DialogRoot({ children }) {
-    const { isOpen } = React.useContext(DialogContext);
-
-    return (
-        <>
-            {isOpen && <div> hello world</div>}
-            {children}
-        </>
-    );
+function DialogRoot({ children, ...rest }) {
+    return <div {...rest}>{children}</div>;
 }
 
 export default DialogRoot;

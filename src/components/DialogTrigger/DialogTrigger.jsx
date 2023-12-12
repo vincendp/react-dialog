@@ -1,7 +1,7 @@
 import React from "react";
 import { DialogContext } from "../../provider/DialogProvider";
 
-function DialogTrigger({ asChild = false, children }) {
+function DialogTrigger({ asChild = false, children, ...rest }) {
     const { toggleIsOpen } = React.useContext(DialogContext);
 
     if (asChild) {
@@ -9,7 +9,11 @@ function DialogTrigger({ asChild = false, children }) {
             onClick: toggleIsOpen,
         });
     } else {
-        return <button onClick={toggleIsOpen}>{children}</button>;
+        return (
+            <button {...rest} onClick={toggleIsOpen}>
+                {children}
+            </button>
+        );
     }
 }
 

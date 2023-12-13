@@ -1,9 +1,11 @@
 import React from "react";
 import { DialogContext } from "../../provider/DialogProvider";
 import useKeyDown from "../../hooks/useKeyDown";
+import useClick from "../../hooks/useClick";
 
 function DialogContent({ children, ...rest }) {
-    const { isOpen, toggleIsOpen } = React.useContext(DialogContext);
+    const { isOpen, toggleIsOpen, triggerRef } =
+        React.useContext(DialogContext);
     const containerRef = React.useRef();
 
     useKeyDown("Escape", () => {
@@ -12,18 +14,14 @@ function DialogContent({ children, ...rest }) {
         }
     });
 
-    React.useEffect(() => {
-        function handleClick(event) {
-            if (isOpen && !containerRef?.current.contains(event.target)) {
-                toggleIsOpen();
-            }
+    useClick((event) => {
+        if (
+            triggerRef.prevIsOpen &&
+            !containerRef?.current.contains(event.target)
+        ) {
+            toggleIsOpen();
         }
-        window.addEventListener("click", handleClick);
-
-        return () => {
-            window.removeEventListener("click", handleClick);
-        };
-    }, [isOpen, toggleIsOpen]);
+    });
 
     return (
         isOpen && (

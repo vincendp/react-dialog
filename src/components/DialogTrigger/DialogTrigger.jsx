@@ -2,7 +2,7 @@ import React from "react";
 import { DialogContext } from "../../provider/DialogProvider";
 
 function DialogTrigger({ asChild = false, children, ...rest }) {
-    const { toggleIsOpen } = React.useContext(DialogContext);
+    const { toggleIsOpen, triggerRef } = React.useContext(DialogContext);
 
     if (asChild) {
         return React.cloneElement(children, {
@@ -10,7 +10,7 @@ function DialogTrigger({ asChild = false, children, ...rest }) {
         });
     } else {
         return (
-            <button {...rest} onClick={toggleIsOpen}>
+            <button {...rest} ref={triggerRef} onClick={toggleIsOpen}>
                 {children}
             </button>
         );

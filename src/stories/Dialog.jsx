@@ -9,7 +9,11 @@ export default function DialogScreen({ defaultIsOpen }) {
                 <Dialog.Portal>
                     <Dialog.Overlay className={styles.overlay}></Dialog.Overlay>
                     <Dialog.Content className={styles.content}>
-                        <p>Hello World!</p>
+                        <Dialog.Title> Hello World Title </Dialog.Title>
+                        <Dialog.Description>
+                            Hello World Description
+                        </Dialog.Description>
+                        <Dialog.Close className={styles.close}>X</Dialog.Close>
                     </Dialog.Content>
                 </Dialog.Portal>
             </Dialog.Root>

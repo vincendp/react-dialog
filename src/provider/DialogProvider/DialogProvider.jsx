@@ -11,12 +11,6 @@ function DialogProvider({ defaultIsOpen = false, children }) {
         setIsOpen((currentIsOpen) => !currentIsOpen);
     }, []);
 
-    React.useEffect(() => {
-        if (triggerRef.prevIsOpen === undefined) {
-            triggerRef.prevIsOpen = defaultIsOpen;
-        }
-    }, [defaultIsOpen]);
-
     useClick(() => {
         triggerRef.prevIsOpen = isOpen;
     }, true);

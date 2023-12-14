@@ -7,13 +7,9 @@ function DialogProvider({ defaultIsOpen = false, children }) {
     const [isOpen, setIsOpen] = React.useState(defaultIsOpen);
     const triggerRef = React.useRef();
 
-    const toggleIsOpen = React.useCallback(
-        function toggleIsOpen() {
-            triggerRef.prevIsOpen = isOpen;
-            setIsOpen((currentIsOpen) => !currentIsOpen);
-        },
-        [isOpen]
-    );
+    const toggleIsOpen = React.useCallback(function toggleIsOpen() {
+        setIsOpen((currentIsOpen) => !currentIsOpen);
+    }, []);
 
     React.useEffect(() => {
         if (triggerRef.prevIsOpen === undefined) {
@@ -23,7 +19,7 @@ function DialogProvider({ defaultIsOpen = false, children }) {
 
     useClick(() => {
         triggerRef.prevIsOpen = isOpen;
-    });
+    }, true);
 
     const value = React.useMemo(() => {
         return {

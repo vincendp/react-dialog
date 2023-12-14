@@ -11,6 +11,8 @@
     position: fixed;
     background-color: white;
     padding: 100px;
+    top: 0;
+    left: 0;
 }
 
 .close {
